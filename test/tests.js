@@ -825,7 +825,7 @@ describe( 'passport-saml /', function() {
           var samlObj = new SAML( samlConfig );
           samlObj.validatePostResponse( container, function( err, profile, logout ) {
             should.not.exist( err );
-            profile.nameID.should.startWith( 'ploer' );
+            profile.nameID.should.equal('ploer@subspacesw.com');
             done();
           });
         });
@@ -908,7 +908,7 @@ describe( 'passport-saml /', function() {
           var samlObj = new SAML( multiCertSamlConfig );
           samlObj.validatePostResponse( container, function( err, profile, logout ) {
             should.not.exist( err );
-            profile.nameID.should.startWith( 'ploer' );
+            profile.nameID.should.equal('ploer@subspacesw.com');
             done();
           });
         });
@@ -926,7 +926,7 @@ describe( 'passport-saml /', function() {
           var samlObj = new SAML( functionCertSamlConfig );
           samlObj.validatePostResponse( container, function( err, profile, logout ) {
             should.not.exist( err );
-            profile.nameID.should.startWith( 'ploer' );
+            profile.nameID.should.equal('ploer@subspacesw.com');
             done();
           });
         });
@@ -948,7 +948,7 @@ describe( 'passport-saml /', function() {
           var samlObj = new SAML( functionMultiCertSamlConfig );
           samlObj.validatePostResponse( container, function( err, profile, logout ) {
             should.not.exist( err );
-            profile.nameID.should.startWith( 'ploer' );
+            profile.nameID.should.equal('ploer@subspacesw.com');
             done();
           });
         });
@@ -1221,7 +1221,7 @@ describe( 'passport-saml /', function() {
 
         samlObj.validatePostResponse( container, function( err, profile, logout ) {
           should.not.exist( err );
-          profile.nameID.should.startWith( 'ploer' );
+          profile.nameID.should.equal('ploer@subspacesw.com');
           samlObj.cacheProvider.get(requestId, function(err, value){
               should.not.exist(value);
               done();
@@ -1405,7 +1405,7 @@ describe( 'passport-saml /', function() {
 
         samlObj.validatePostResponse( container, function( err, profile, logout ) {
           should.not.exist( err );
-          profile.nameID.should.startWith( 'ploer' );
+          profile.nameID.should.equal('ploer@subspacesw.com');
           done();
         });
       });
@@ -1423,7 +1423,7 @@ describe( 'passport-saml /', function() {
 
         samlObj.validatePostResponse( container, function( err, profile, logout ) {
             should.not.exist( err );
-            profile.nameID.should.startWith( 'ploer' );
+            profile.nameID.should.equal('ploer@subspacesw.com');
             done();
         });
       });
@@ -1501,7 +1501,7 @@ describe( 'passport-saml /', function() {
 
         samlObj.validatePostResponse( container, function( err, profile, logout ) {
           should.not.exist( err );
-          profile.nameID.should.startWith( 'ploer' );
+          profile.nameID.should.equal('ploer@subspacesw.com');
           done();
         });
       });
@@ -1564,7 +1564,7 @@ describe( 'passport-saml /', function() {
 
         samlObj.validatePostResponse( container, function( err, profile, logout ) {
           should.not.exist( err );
-          profile.nameID.should.startWith( 'ploer' );
+          profile.nameID.should.equal('ploer@subspacesw.com');
           done();
         });
       });
