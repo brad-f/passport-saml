@@ -802,6 +802,25 @@ describe( 'passport-saml /', function() {
         });
       });
 
+      it('removes comments from attributes and nameID', function(done) {
+        var fakeClock = sinon.useFakeTimers(Date.parse('2015-08-31T08:55:00+00:00'));
+        var container = {
+            SAMLResponse : fs.readFileSync(
+                __dirname + '/static/response-with-comments.xml'
+            ).toString('base64')
+        };
+        var samlObj = new SAML();
+
+        samlObj.validatePostResponse(container, function(err, profile) {
+          should.not.exist(err);
+          profile.issuer.should.eql("https://evil-corp.com");
+          profile.nameID.should.eql("vincent.vega@evil-corp.com");
+          should(profile).have.property("evilcorp.givenname").eql("Vincent");
+          fakeClock.restore();
+          done();
+        });
+      });
+
       describe( 'validatePostResponse xml signature checks /', function() {
 
         var fakeClock;
